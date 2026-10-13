@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a676b1ebd04b461c8b712daa110f091c" Name="Diagram1" ZoomLevel="53" >
+        <EntityTypeShape EntityType="DBModel.amet" Width="1.5" PointX="9" PointY="7" />
+        <EntityTypeShape EntityType="DBModel.Tootaja" Width="1.5" PointX="12.25" PointY="4.75" />
+        <AssociationConnector Association="DBModel.ametTootaja" />
+        <EntityTypeShape EntityType="DBModel.Toograafik" Width="1.5" PointX="14.75" PointY="5" />
+        <AssociationConnector Association="DBModel.TootajaToograafik" />
+        <EntityTypeShape EntityType="DBModel.Tellimus" Width="1.5" PointX="1.125" PointY="4" />
+        <AssociationConnector Association="DBModel.TootajaTellimus" />
+        <EntityTypeShape EntityType="DBModel.klient" Width="1.5" PointX="6.25" PointY="4.625" />
+        <AssociationConnector Association="DBModel.klientTellimus" />
+        <EntityTypeShape EntityType="DBModel.broneerimine" Width="1.5" PointX="9.375" PointY="4.625" />
+        <AssociationConnector Association="DBModel.klientbroneerimine" />
+        <EntityTypeShape EntityType="DBModel.laud" Width="1.5" PointX="3.625" PointY="6.125" />
+        <AssociationConnector Association="DBModel.laudbroneerimine" />
+        <EntityTypeShape EntityType="DBModel.TellimusToode" Width="1.5" PointX="6.25" PointY="7.625" />
+        <AssociationConnector Association="DBModel.TellimusTellimusToode" />
+        <EntityTypeShape EntityType="DBModel.Toode" Width="1.625" PointX="16.875" PointY="7.375" />
+        <AssociationConnector Association="DBModel.ToodeTellimusToode" />
+        <EntityTypeShape EntityType="DBModel.kategooria" Width="1.5" PointX="8.75" PointY="9.875" />
+        <AssociationConnector Association="DBModel.kategooriaToode" />
+        <EntityTypeShape EntityType="DBModel.makse" Width="1.5" PointX="0.875" PointY="9" />
+        <AssociationConnector Association="DBModel.Tellimusmakse" />
+        <EntityTypeShape EntityType="DBModel.TooteKoostisosa" Width="1.5" PointX="5.125" PointY="1.875" />
+        <AssociationConnector Association="DBModel.TooteKoostisosaTellimus" />
+        <AssociationConnector Association="DBModel.ToodeTooteKoostisosa" />
+        <EntityTypeShape EntityType="DBModel.Koostisosa" Width="1.5" PointX="10.75" PointY="1.625" />
+        <AssociationConnector Association="DBModel.KoostisosaTooteKoostisosa" />
+        <EntityTypeShape EntityType="DBModel.Tarnija" Width="1.5" PointX="3.75" PointY="11.125" />
+        <EntityTypeShape EntityType="DBModel.Tooraine" Width="1.5" PointX="6.75" PointY="11.375" />
+        <AssociationConnector Association="DBModel.TarnijaTooraine" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

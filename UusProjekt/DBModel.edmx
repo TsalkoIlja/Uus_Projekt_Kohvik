@@ -1,0 +1,930 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DBModelStoreContainer">
+    <EntitySet Name="ametSet" EntityType="DBModel.Store.ametSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TootajaSet" EntityType="DBModel.Store.TootajaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ToograafikSet" EntityType="DBModel.Store.ToograafikSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TellimusSet" EntityType="DBModel.Store.TellimusSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="klientSet" EntityType="DBModel.Store.klientSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="broneerimineSet" EntityType="DBModel.Store.broneerimineSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="laudSet" EntityType="DBModel.Store.laudSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TellimusToodeSet" EntityType="DBModel.Store.TellimusToodeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ToodeSet" EntityType="DBModel.Store.ToodeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="kategooriaSet" EntityType="DBModel.Store.kategooriaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="makseSet" EntityType="DBModel.Store.makseSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TooteKoostisosaSet" EntityType="DBModel.Store.TooteKoostisosaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KoostisosaSet" EntityType="DBModel.Store.KoostisosaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TarnijaSet" EntityType="DBModel.Store.TarnijaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TooraineSet" EntityType="DBModel.Store.TooraineSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ametTootaja" Association="DBModel.Store.ametTootaja">
+      <End Role="amet" EntitySet="ametSet" />
+      <End Role="Tootaja" EntitySet="TootajaSet" />
+    </AssociationSet>
+    <AssociationSet Name="TootajaToograafik" Association="DBModel.Store.TootajaToograafik">
+      <End Role="Tootaja" EntitySet="TootajaSet" />
+      <End Role="Toograafik" EntitySet="ToograafikSet" />
+    </AssociationSet>
+    <AssociationSet Name="TootajaTellimus" Association="DBModel.Store.TootajaTellimus">
+      <End Role="Tootaja" EntitySet="TootajaSet" />
+      <End Role="Tellimus" EntitySet="TellimusSet" />
+    </AssociationSet>
+    <AssociationSet Name="klientTellimus" Association="DBModel.Store.klientTellimus">
+      <End Role="klient" EntitySet="klientSet" />
+      <End Role="Tellimus" EntitySet="TellimusSet" />
+    </AssociationSet>
+    <AssociationSet Name="klientbroneerimine" Association="DBModel.Store.klientbroneerimine">
+      <End Role="klient" EntitySet="klientSet" />
+      <End Role="broneerimine" EntitySet="broneerimineSet" />
+    </AssociationSet>
+    <AssociationSet Name="laudbroneerimine" Association="DBModel.Store.laudbroneerimine">
+      <End Role="laud" EntitySet="laudSet" />
+      <End Role="broneerimine" EntitySet="broneerimineSet" />
+    </AssociationSet>
+    <AssociationSet Name="TellimusTellimusToode" Association="DBModel.Store.TellimusTellimusToode">
+      <End Role="Tellimus" EntitySet="TellimusSet" />
+      <End Role="TellimusToode" EntitySet="TellimusToodeSet" />
+    </AssociationSet>
+    <AssociationSet Name="ToodeTellimusToode" Association="DBModel.Store.ToodeTellimusToode">
+      <End Role="Toode" EntitySet="ToodeSet" />
+      <End Role="TellimusToode" EntitySet="TellimusToodeSet" />
+    </AssociationSet>
+    <AssociationSet Name="kategooriaToode" Association="DBModel.Store.kategooriaToode">
+      <End Role="kategooria" EntitySet="kategooriaSet" />
+      <End Role="Toode" EntitySet="ToodeSet" />
+    </AssociationSet>
+    <AssociationSet Name="Tellimusmakse" Association="DBModel.Store.Tellimusmakse">
+      <End Role="Tellimus" EntitySet="TellimusSet" />
+      <End Role="makse" EntitySet="makseSet" />
+    </AssociationSet>
+    <AssociationSet Name="TooteKoostisosaTellimus" Association="DBModel.Store.TooteKoostisosaTellimus">
+      <End Role="TooteKoostisosa" EntitySet="TooteKoostisosaSet" />
+      <End Role="Tellimus" EntitySet="TellimusSet" />
+    </AssociationSet>
+    <AssociationSet Name="ToodeTooteKoostisosa" Association="DBModel.Store.ToodeTooteKoostisosa">
+      <End Role="Toode" EntitySet="ToodeSet" />
+      <End Role="TooteKoostisosa" EntitySet="TooteKoostisosaSet" />
+    </AssociationSet>
+    <AssociationSet Name="KoostisosaTooteKoostisosa" Association="DBModel.Store.KoostisosaTooteKoostisosa">
+      <End Role="Koostisosa" EntitySet="KoostisosaSet" />
+      <End Role="TooteKoostisosa" EntitySet="TooteKoostisosaSet" />
+    </AssociationSet>
+    <AssociationSet Name="TarnijaTooraine" Association="DBModel.Store.TarnijaTooraine">
+      <End Role="Tarnija" EntitySet="TarnijaSet" />
+      <End Role="Tooraine" EntitySet="TooraineSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ametSet">
+    <Key>
+      <PropertyRef Name="ametId" />
+    </Key>
+    <Property Name="ametId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amet_Nimetus" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TootajaSet">
+    <Key>
+      <PropertyRef Name="TootajaId" />
+    </Key>
+    <Property Name="TootajaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nimi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="isikukood" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="telefon" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="amet_ametId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ToograafikSet">
+    <Key>
+      <PropertyRef Name="ToograafikId" />
+    </Key>
+    <Property Name="ToograafikId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kuupaev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tootaja_TootajaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TellimusSet">
+    <Key>
+      <PropertyRef Name="TellimusId" />
+    </Key>
+    <Property Name="TellimusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kuupaev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kellaeg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tootaja_TootajaId" Type="int" Nullable="false" />
+    <Property Name="klient_klientId" Type="int" Nullable="false" />
+    <Property Name="TooteKoostisosa_tooteKoostisosaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="klientSet">
+    <Key>
+      <PropertyRef Name="klientId" />
+    </Key>
+    <Property Name="klientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nimi" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="broneerimineSet">
+    <Key>
+      <PropertyRef Name="bronnerimineId" />
+    </Key>
+    <Property Name="bronnerimineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kuupaev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="inimeste_arv" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kellaeg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="klient_klientId" Type="int" Nullable="false" />
+    <Property Name="laud_laudId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="laudSet">
+    <Key>
+      <PropertyRef Name="laudId" />
+    </Key>
+    <Property Name="laudId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="laud_number" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kohtade_arv" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TellimusToodeSet">
+    <Key>
+      <PropertyRef Name="TellimusToodeId" />
+    </Key>
+    <Property Name="TellimusToodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kogus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tellimus_TellimusId" Type="int" Nullable="false" />
+    <Property Name="Toode_ToodeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ToodeSet">
+    <Key>
+      <PropertyRef Name="ToodeId" />
+    </Key>
+    <Property Name="ToodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nimetus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kirjeldus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="hind" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kategooria_kategooriaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kategooriaSet">
+    <Key>
+      <PropertyRef Name="kategooriaId" />
+    </Key>
+    <Property Name="kategooriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nimi" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="makseSet">
+    <Key>
+      <PropertyRef Name="makseId" />
+    </Key>
+    <Property Name="makseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kuupaev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="summa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="makseviis" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tellimus_TellimusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TooteKoostisosaSet">
+    <Key>
+      <PropertyRef Name="tooteKoostisosaId" />
+    </Key>
+    <Property Name="tooteKoostisosaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kogus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Toode_ToodeId" Type="int" Nullable="false" />
+    <Property Name="Koostisosa_koostisosaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KoostisosaSet">
+    <Key>
+      <PropertyRef Name="koostisosaId" />
+    </Key>
+    <Property Name="koostisosaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nimi" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TarnijaSet">
+    <Key>
+      <PropertyRef Name="TaarnijaId" />
+    </Key>
+    <Property Name="TaarnijaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nimi" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TooraineSet">
+    <Key>
+      <PropertyRef Name="TooraineId" />
+    </Key>
+    <Property Name="TooraineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nimi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kogus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="hind" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tarnija_TaarnijaId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ametTootaja">
+    <End Role="amet" Type="DBModel.Store.ametSet" Multiplicity="1" />
+    <End Role="Tootaja" Type="DBModel.Store.TootajaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="amet">
+        <PropertyRef Name="ametId" />
+      </Principal>
+      <Dependent Role="Tootaja">
+        <PropertyRef Name="amet_ametId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TootajaToograafik">
+    <End Role="Tootaja" Type="DBModel.Store.TootajaSet" Multiplicity="1" />
+    <End Role="Toograafik" Type="DBModel.Store.ToograafikSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tootaja">
+        <PropertyRef Name="TootajaId" />
+      </Principal>
+      <Dependent Role="Toograafik">
+        <PropertyRef Name="Tootaja_TootajaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TootajaTellimus">
+    <End Role="Tootaja" Type="DBModel.Store.TootajaSet" Multiplicity="1" />
+    <End Role="Tellimus" Type="DBModel.Store.TellimusSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tootaja">
+        <PropertyRef Name="TootajaId" />
+      </Principal>
+      <Dependent Role="Tellimus">
+        <PropertyRef Name="Tootaja_TootajaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="klientTellimus">
+    <End Role="klient" Type="DBModel.Store.klientSet" Multiplicity="1" />
+    <End Role="Tellimus" Type="DBModel.Store.TellimusSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klient">
+        <PropertyRef Name="klientId" />
+      </Principal>
+      <Dependent Role="Tellimus">
+        <PropertyRef Name="klient_klientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="klientbroneerimine">
+    <End Role="klient" Type="DBModel.Store.klientSet" Multiplicity="1" />
+    <End Role="broneerimine" Type="DBModel.Store.broneerimineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klient">
+        <PropertyRef Name="klientId" />
+      </Principal>
+      <Dependent Role="broneerimine">
+        <PropertyRef Name="klient_klientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="laudbroneerimine">
+    <End Role="laud" Type="DBModel.Store.laudSet" Multiplicity="1" />
+    <End Role="broneerimine" Type="DBModel.Store.broneerimineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="laud">
+        <PropertyRef Name="laudId" />
+      </Principal>
+      <Dependent Role="broneerimine">
+        <PropertyRef Name="laud_laudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TellimusTellimusToode">
+    <End Role="Tellimus" Type="DBModel.Store.TellimusSet" Multiplicity="1" />
+    <End Role="TellimusToode" Type="DBModel.Store.TellimusToodeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tellimus">
+        <PropertyRef Name="TellimusId" />
+      </Principal>
+      <Dependent Role="TellimusToode">
+        <PropertyRef Name="Tellimus_TellimusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ToodeTellimusToode">
+    <End Role="Toode" Type="DBModel.Store.ToodeSet" Multiplicity="1" />
+    <End Role="TellimusToode" Type="DBModel.Store.TellimusToodeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Toode">
+        <PropertyRef Name="ToodeId" />
+      </Principal>
+      <Dependent Role="TellimusToode">
+        <PropertyRef Name="Toode_ToodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="kategooriaToode">
+    <End Role="kategooria" Type="DBModel.Store.kategooriaSet" Multiplicity="1" />
+    <End Role="Toode" Type="DBModel.Store.ToodeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategooria">
+        <PropertyRef Name="kategooriaId" />
+      </Principal>
+      <Dependent Role="Toode">
+        <PropertyRef Name="kategooria_kategooriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Tellimusmakse">
+    <End Role="Tellimus" Type="DBModel.Store.TellimusSet" Multiplicity="1" />
+    <End Role="makse" Type="DBModel.Store.makseSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tellimus">
+        <PropertyRef Name="TellimusId" />
+      </Principal>
+      <Dependent Role="makse">
+        <PropertyRef Name="Tellimus_TellimusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TooteKoostisosaTellimus">
+    <End Role="TooteKoostisosa" Type="DBModel.Store.TooteKoostisosaSet" Multiplicity="1" />
+    <End Role="Tellimus" Type="DBModel.Store.TellimusSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TooteKoostisosa">
+        <PropertyRef Name="tooteKoostisosaId" />
+      </Principal>
+      <Dependent Role="Tellimus">
+        <PropertyRef Name="TooteKoostisosa_tooteKoostisosaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ToodeTooteKoostisosa">
+    <End Role="Toode" Type="DBModel.Store.ToodeSet" Multiplicity="1" />
+    <End Role="TooteKoostisosa" Type="DBModel.Store.TooteKoostisosaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Toode">
+        <PropertyRef Name="ToodeId" />
+      </Principal>
+      <Dependent Role="TooteKoostisosa">
+        <PropertyRef Name="Toode_ToodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KoostisosaTooteKoostisosa">
+    <End Role="Koostisosa" Type="DBModel.Store.KoostisosaSet" Multiplicity="1" />
+    <End Role="TooteKoostisosa" Type="DBModel.Store.TooteKoostisosaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Koostisosa">
+        <PropertyRef Name="koostisosaId" />
+      </Principal>
+      <Dependent Role="TooteKoostisosa">
+        <PropertyRef Name="Koostisosa_koostisosaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TarnijaTooraine">
+    <End Role="Tarnija" Type="DBModel.Store.TarnijaSet" Multiplicity="1" />
+    <End Role="Tooraine" Type="DBModel.Store.TooraineSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tarnija">
+        <PropertyRef Name="TaarnijaId" />
+      </Principal>
+      <Dependent Role="Tooraine">
+        <PropertyRef Name="Tarnija_TaarnijaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DBModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ametSet" EntityType="DBModel.amet" />
+          <EntitySet Name="TootajaSet" EntityType="DBModel.Tootaja" />
+          <AssociationSet Name="ametTootaja" Association="DBModel.ametTootaja">
+            <End Role="amet" EntitySet="ametSet" />
+            <End Role="Tootaja" EntitySet="TootajaSet" />
+          </AssociationSet>
+          <EntitySet Name="ToograafikSet" EntityType="DBModel.Toograafik" />
+          <AssociationSet Name="TootajaToograafik" Association="DBModel.TootajaToograafik">
+            <End Role="Tootaja" EntitySet="TootajaSet" />
+            <End Role="Toograafik" EntitySet="ToograafikSet" />
+          </AssociationSet>
+          <EntitySet Name="TellimusSet" EntityType="DBModel.Tellimus" />
+          <AssociationSet Name="TootajaTellimus" Association="DBModel.TootajaTellimus">
+            <End Role="Tootaja" EntitySet="TootajaSet" />
+            <End Role="Tellimus" EntitySet="TellimusSet" />
+          </AssociationSet>
+          <EntitySet Name="klientSet" EntityType="DBModel.klient" />
+          <AssociationSet Name="klientTellimus" Association="DBModel.klientTellimus">
+            <End Role="klient" EntitySet="klientSet" />
+            <End Role="Tellimus" EntitySet="TellimusSet" />
+          </AssociationSet>
+          <EntitySet Name="broneerimineSet" EntityType="DBModel.broneerimine" />
+          <AssociationSet Name="klientbroneerimine" Association="DBModel.klientbroneerimine">
+            <End Role="klient" EntitySet="klientSet" />
+            <End Role="broneerimine" EntitySet="broneerimineSet" />
+          </AssociationSet>
+          <EntitySet Name="laudSet" EntityType="DBModel.laud" />
+          <AssociationSet Name="laudbroneerimine" Association="DBModel.laudbroneerimine">
+            <End Role="laud" EntitySet="laudSet" />
+            <End Role="broneerimine" EntitySet="broneerimineSet" />
+          </AssociationSet>
+          <EntitySet Name="TellimusToodeSet" EntityType="DBModel.TellimusToode" />
+          <AssociationSet Name="TellimusTellimusToode" Association="DBModel.TellimusTellimusToode">
+            <End Role="Tellimus" EntitySet="TellimusSet" />
+            <End Role="TellimusToode" EntitySet="TellimusToodeSet" />
+          </AssociationSet>
+          <EntitySet Name="ToodeSet" EntityType="DBModel.Toode" />
+          <AssociationSet Name="ToodeTellimusToode" Association="DBModel.ToodeTellimusToode">
+            <End Role="Toode" EntitySet="ToodeSet" />
+            <End Role="TellimusToode" EntitySet="TellimusToodeSet" />
+          </AssociationSet>
+          <EntitySet Name="kategooriaSet" EntityType="DBModel.kategooria" />
+          <AssociationSet Name="kategooriaToode" Association="DBModel.kategooriaToode">
+            <End Role="kategooria" EntitySet="kategooriaSet" />
+            <End Role="Toode" EntitySet="ToodeSet" />
+          </AssociationSet>
+          <EntitySet Name="makseSet" EntityType="DBModel.makse" />
+          <AssociationSet Name="Tellimusmakse" Association="DBModel.Tellimusmakse">
+            <End Role="Tellimus" EntitySet="TellimusSet" />
+            <End Role="makse" EntitySet="makseSet" />
+          </AssociationSet>
+          <EntitySet Name="TooteKoostisosaSet" EntityType="DBModel.TooteKoostisosa" />
+          <AssociationSet Name="TooteKoostisosaTellimus" Association="DBModel.TooteKoostisosaTellimus">
+            <End Role="TooteKoostisosa" EntitySet="TooteKoostisosaSet" />
+            <End Role="Tellimus" EntitySet="TellimusSet" />
+          </AssociationSet>
+          <AssociationSet Name="ToodeTooteKoostisosa" Association="DBModel.ToodeTooteKoostisosa">
+            <End Role="Toode" EntitySet="ToodeSet" />
+            <End Role="TooteKoostisosa" EntitySet="TooteKoostisosaSet" />
+          </AssociationSet>
+          <EntitySet Name="KoostisosaSet" EntityType="DBModel.Koostisosa" />
+          <AssociationSet Name="KoostisosaTooteKoostisosa" Association="DBModel.KoostisosaTooteKoostisosa">
+            <End Role="Koostisosa" EntitySet="KoostisosaSet" />
+            <End Role="TooteKoostisosa" EntitySet="TooteKoostisosaSet" />
+          </AssociationSet>
+          <EntitySet Name="TarnijaSet" EntityType="DBModel.Tarnija" />
+          <EntitySet Name="TooraineSet" EntityType="DBModel.Tooraine" />
+          <AssociationSet Name="TarnijaTooraine" Association="DBModel.TarnijaTooraine">
+            <End Role="Tarnija" EntitySet="TarnijaSet" />
+            <End Role="Tooraine" EntitySet="TooraineSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="amet">
+          <Key>
+            <PropertyRef Name="ametId" />
+          </Key>
+          <Property Name="ametId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amet_Nimetus" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tootaja" Relationship="DBModel.ametTootaja" FromRole="amet" ToRole="Tootaja" />
+        </EntityType>
+        <EntityType Name="Tootaja">
+          <Key>
+            <PropertyRef Name="TootajaId" />
+          </Key>
+          <Property Name="TootajaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nimi" Type="String" Nullable="false" />
+          <NavigationProperty Name="amet" Relationship="DBModel.ametTootaja" FromRole="Tootaja" ToRole="amet" />
+          <NavigationProperty Name="Toograafik" Relationship="DBModel.TootajaToograafik" FromRole="Tootaja" ToRole="Toograafik" />
+          <NavigationProperty Name="Tellimus" Relationship="DBModel.TootajaTellimus" FromRole="Tootaja" ToRole="Tellimus" />
+          <Property Name="isikukood" Type="String" Nullable="false" />
+          <Property Name="telefon" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ametTootaja">
+          <End Type="DBModel.amet" Role="amet" Multiplicity="1" />
+          <End Type="DBModel.Tootaja" Role="Tootaja" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Toograafik">
+          <Key>
+            <PropertyRef Name="ToograafikId" />
+          </Key>
+          <Property Name="ToograafikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kuupaev" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tootaja" Relationship="DBModel.TootajaToograafik" FromRole="Toograafik" ToRole="Tootaja" />
+        </EntityType>
+        <Association Name="TootajaToograafik">
+          <End Type="DBModel.Tootaja" Role="Tootaja" Multiplicity="1" />
+          <End Type="DBModel.Toograafik" Role="Toograafik" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Tellimus">
+          <Key>
+            <PropertyRef Name="TellimusId" />
+          </Key>
+          <Property Name="TellimusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kuupaev" Type="String" Nullable="false" />
+          <Property Name="kellaeg" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tootaja" Relationship="DBModel.TootajaTellimus" FromRole="Tellimus" ToRole="Tootaja" />
+          <NavigationProperty Name="klient" Relationship="DBModel.klientTellimus" FromRole="Tellimus" ToRole="klient" />
+          <NavigationProperty Name="TellimusToode" Relationship="DBModel.TellimusTellimusToode" FromRole="Tellimus" ToRole="TellimusToode" />
+          <NavigationProperty Name="makse" Relationship="DBModel.Tellimusmakse" FromRole="Tellimus" ToRole="makse" />
+          <NavigationProperty Name="TooteKoostisosa" Relationship="DBModel.TooteKoostisosaTellimus" FromRole="Tellimus" ToRole="TooteKoostisosa" />
+        </EntityType>
+        <Association Name="TootajaTellimus">
+          <End Type="DBModel.Tootaja" Role="Tootaja" Multiplicity="1" />
+          <End Type="DBModel.Tellimus" Role="Tellimus" Multiplicity="*" />
+        </Association>
+        <EntityType Name="klient">
+          <Key>
+            <PropertyRef Name="klientId" />
+          </Key>
+          <Property Name="klientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nimi" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tellimus" Relationship="DBModel.klientTellimus" FromRole="klient" ToRole="Tellimus" />
+          <NavigationProperty Name="broneerimine" Relationship="DBModel.klientbroneerimine" FromRole="klient" ToRole="broneerimine" />
+        </EntityType>
+        <Association Name="klientTellimus">
+          <End Type="DBModel.klient" Role="klient" Multiplicity="1" />
+          <End Type="DBModel.Tellimus" Role="Tellimus" Multiplicity="*" />
+        </Association>
+        <EntityType Name="broneerimine">
+          <Key>
+            <PropertyRef Name="bronnerimineId" />
+          </Key>
+          <Property Name="bronnerimineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kuupaev" Type="String" Nullable="false" />
+          <Property Name="inimeste_arv" Type="String" Nullable="false" />
+          <Property Name="kellaeg" Type="String" Nullable="false" />
+          <NavigationProperty Name="klient" Relationship="DBModel.klientbroneerimine" FromRole="broneerimine" ToRole="klient" />
+          <NavigationProperty Name="laud" Relationship="DBModel.laudbroneerimine" FromRole="broneerimine" ToRole="laud" />
+        </EntityType>
+        <Association Name="klientbroneerimine">
+          <End Type="DBModel.klient" Role="klient" Multiplicity="1" />
+          <End Type="DBModel.broneerimine" Role="broneerimine" Multiplicity="*" />
+        </Association>
+        <EntityType Name="laud">
+          <Key>
+            <PropertyRef Name="laudId" />
+          </Key>
+          <Property Name="laudId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="laud_number" Type="String" Nullable="false" />
+          <Property Name="kohtade_arv" Type="String" Nullable="false" />
+          <NavigationProperty Name="broneerimine" Relationship="DBModel.laudbroneerimine" FromRole="laud" ToRole="broneerimine" />
+        </EntityType>
+        <Association Name="laudbroneerimine">
+          <End Type="DBModel.laud" Role="laud" Multiplicity="1" />
+          <End Type="DBModel.broneerimine" Role="broneerimine" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TellimusToode">
+          <Key>
+            <PropertyRef Name="TellimusToodeId" />
+          </Key>
+          <Property Name="TellimusToodeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kogus" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tellimus" Relationship="DBModel.TellimusTellimusToode" FromRole="TellimusToode" ToRole="Tellimus" />
+          <NavigationProperty Name="Toode" Relationship="DBModel.ToodeTellimusToode" FromRole="TellimusToode" ToRole="Toode" />
+        </EntityType>
+        <Association Name="TellimusTellimusToode">
+          <End Type="DBModel.Tellimus" Role="Tellimus" Multiplicity="1" />
+          <End Type="DBModel.TellimusToode" Role="TellimusToode" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Toode">
+          <Key>
+            <PropertyRef Name="ToodeId" />
+          </Key>
+          <Property Name="ToodeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nimetus" Type="String" Nullable="false" />
+          <Property Name="kirjeldus" Type="String" Nullable="false" />
+          <Property Name="hind" Type="String" Nullable="false" />
+          <NavigationProperty Name="TellimusToode" Relationship="DBModel.ToodeTellimusToode" FromRole="Toode" ToRole="TellimusToode" />
+          <NavigationProperty Name="kategooria" Relationship="DBModel.kategooriaToode" FromRole="Toode" ToRole="kategooria" />
+          <NavigationProperty Name="TooteKoostisosa" Relationship="DBModel.ToodeTooteKoostisosa" FromRole="Toode" ToRole="TooteKoostisosa" />
+        </EntityType>
+        <Association Name="ToodeTellimusToode">
+          <End Type="DBModel.Toode" Role="Toode" Multiplicity="1" />
+          <End Type="DBModel.TellimusToode" Role="TellimusToode" Multiplicity="*" />
+        </Association>
+        <EntityType Name="kategooria">
+          <Key>
+            <PropertyRef Name="kategooriaId" />
+          </Key>
+          <Property Name="kategooriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nimi" Type="String" Nullable="false" />
+          <NavigationProperty Name="Toode" Relationship="DBModel.kategooriaToode" FromRole="kategooria" ToRole="Toode" />
+        </EntityType>
+        <Association Name="kategooriaToode">
+          <End Type="DBModel.kategooria" Role="kategooria" Multiplicity="1" />
+          <End Type="DBModel.Toode" Role="Toode" Multiplicity="*" />
+        </Association>
+        <EntityType Name="makse">
+          <Key>
+            <PropertyRef Name="makseId" />
+          </Key>
+          <Property Name="makseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kuupaev" Type="String" Nullable="false" />
+          <Property Name="summa" Type="String" Nullable="false" />
+          <Property Name="makseviis" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tellimus" Relationship="DBModel.Tellimusmakse" FromRole="makse" ToRole="Tellimus" />
+        </EntityType>
+        <Association Name="Tellimusmakse">
+          <End Type="DBModel.Tellimus" Role="Tellimus" Multiplicity="1" />
+          <End Type="DBModel.makse" Role="makse" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TooteKoostisosa">
+          <Key>
+            <PropertyRef Name="tooteKoostisosaId" />
+          </Key>
+          <Property Name="tooteKoostisosaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kogus" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tellimus" Relationship="DBModel.TooteKoostisosaTellimus" FromRole="TooteKoostisosa" ToRole="Tellimus" />
+          <NavigationProperty Name="Toode" Relationship="DBModel.ToodeTooteKoostisosa" FromRole="TooteKoostisosa" ToRole="Toode" />
+          <NavigationProperty Name="Koostisosa" Relationship="DBModel.KoostisosaTooteKoostisosa" FromRole="TooteKoostisosa" ToRole="Koostisosa" />
+        </EntityType>
+        <Association Name="TooteKoostisosaTellimus">
+          <End Type="DBModel.TooteKoostisosa" Role="TooteKoostisosa" Multiplicity="1" />
+          <End Type="DBModel.Tellimus" Role="Tellimus" Multiplicity="*" />
+        </Association>
+        <Association Name="ToodeTooteKoostisosa">
+          <End Type="DBModel.Toode" Role="Toode" Multiplicity="1" />
+          <End Type="DBModel.TooteKoostisosa" Role="TooteKoostisosa" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Koostisosa">
+          <Key>
+            <PropertyRef Name="koostisosaId" />
+          </Key>
+          <Property Name="koostisosaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nimi" Type="String" Nullable="false" />
+          <NavigationProperty Name="TooteKoostisosa" Relationship="DBModel.KoostisosaTooteKoostisosa" FromRole="Koostisosa" ToRole="TooteKoostisosa" />
+        </EntityType>
+        <Association Name="KoostisosaTooteKoostisosa">
+          <End Type="DBModel.Koostisosa" Role="Koostisosa" Multiplicity="1" />
+          <End Type="DBModel.TooteKoostisosa" Role="TooteKoostisosa" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Tarnija">
+          <Key>
+            <PropertyRef Name="TaarnijaId" />
+          </Key>
+          <Property Name="TaarnijaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nimi" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tooraine" Relationship="DBModel.TarnijaTooraine" FromRole="Tarnija" ToRole="Tooraine" />
+        </EntityType>
+        <EntityType Name="Tooraine">
+          <Key>
+            <PropertyRef Name="TooraineId" />
+          </Key>
+          <Property Name="TooraineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nimi" Type="String" Nullable="false" />
+          <Property Name="kogus" Type="String" Nullable="false" />
+          <Property Name="hind" Type="String" Nullable="false" />
+          <NavigationProperty Name="Tarnija" Relationship="DBModel.TarnijaTooraine" FromRole="Tooraine" ToRole="Tarnija" />
+        </EntityType>
+        <Association Name="TarnijaTooraine">
+          <End Type="DBModel.Tarnija" Role="Tarnija" Multiplicity="1" />
+          <End Type="DBModel.Tooraine" Role="Tooraine" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBModelContainer">
+    <EntitySetMapping Name="ametSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.amet)">
+        <MappingFragment StoreEntitySet="ametSet">
+          <ScalarProperty Name="ametId" ColumnName="ametId" />
+          <ScalarProperty Name="amet_Nimetus" ColumnName="amet_Nimetus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TootajaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Tootaja)">
+        <MappingFragment StoreEntitySet="TootajaSet">
+          <ScalarProperty Name="TootajaId" ColumnName="TootajaId" />
+          <ScalarProperty Name="nimi" ColumnName="nimi" />
+          <ScalarProperty Name="isikukood" ColumnName="isikukood" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToograafikSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Toograafik)">
+        <MappingFragment StoreEntitySet="ToograafikSet">
+          <ScalarProperty Name="ToograafikId" ColumnName="ToograafikId" />
+          <ScalarProperty Name="kuupaev" ColumnName="kuupaev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TellimusSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Tellimus)">
+        <MappingFragment StoreEntitySet="TellimusSet">
+          <ScalarProperty Name="TellimusId" ColumnName="TellimusId" />
+          <ScalarProperty Name="kuupaev" ColumnName="kuupaev" />
+          <ScalarProperty Name="kellaeg" ColumnName="kellaeg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="klientSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.klient)">
+        <MappingFragment StoreEntitySet="klientSet">
+          <ScalarProperty Name="klientId" ColumnName="klientId" />
+          <ScalarProperty Name="nimi" ColumnName="nimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="broneerimineSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.broneerimine)">
+        <MappingFragment StoreEntitySet="broneerimineSet">
+          <ScalarProperty Name="bronnerimineId" ColumnName="bronnerimineId" />
+          <ScalarProperty Name="kuupaev" ColumnName="kuupaev" />
+          <ScalarProperty Name="inimeste_arv" ColumnName="inimeste_arv" />
+          <ScalarProperty Name="kellaeg" ColumnName="kellaeg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="laudSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.laud)">
+        <MappingFragment StoreEntitySet="laudSet">
+          <ScalarProperty Name="laudId" ColumnName="laudId" />
+          <ScalarProperty Name="laud_number" ColumnName="laud_number" />
+          <ScalarProperty Name="kohtade_arv" ColumnName="kohtade_arv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TellimusToodeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.TellimusToode)">
+        <MappingFragment StoreEntitySet="TellimusToodeSet">
+          <ScalarProperty Name="TellimusToodeId" ColumnName="TellimusToodeId" />
+          <ScalarProperty Name="kogus" ColumnName="kogus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToodeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Toode)">
+        <MappingFragment StoreEntitySet="ToodeSet">
+          <ScalarProperty Name="ToodeId" ColumnName="ToodeId" />
+          <ScalarProperty Name="Nimetus" ColumnName="Nimetus" />
+          <ScalarProperty Name="kirjeldus" ColumnName="kirjeldus" />
+          <ScalarProperty Name="hind" ColumnName="hind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategooriaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.kategooria)">
+        <MappingFragment StoreEntitySet="kategooriaSet">
+          <ScalarProperty Name="kategooriaId" ColumnName="kategooriaId" />
+          <ScalarProperty Name="nimi" ColumnName="nimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="makseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.makse)">
+        <MappingFragment StoreEntitySet="makseSet">
+          <ScalarProperty Name="makseId" ColumnName="makseId" />
+          <ScalarProperty Name="kuupaev" ColumnName="kuupaev" />
+          <ScalarProperty Name="summa" ColumnName="summa" />
+          <ScalarProperty Name="makseviis" ColumnName="makseviis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TooteKoostisosaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.TooteKoostisosa)">
+        <MappingFragment StoreEntitySet="TooteKoostisosaSet">
+          <ScalarProperty Name="tooteKoostisosaId" ColumnName="tooteKoostisosaId" />
+          <ScalarProperty Name="kogus" ColumnName="kogus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KoostisosaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Koostisosa)">
+        <MappingFragment StoreEntitySet="KoostisosaSet">
+          <ScalarProperty Name="koostisosaId" ColumnName="koostisosaId" />
+          <ScalarProperty Name="nimi" ColumnName="nimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarnijaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Tarnija)">
+        <MappingFragment StoreEntitySet="TarnijaSet">
+          <ScalarProperty Name="TaarnijaId" ColumnName="TaarnijaId" />
+          <ScalarProperty Name="nimi" ColumnName="nimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TooraineSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Tooraine)">
+        <MappingFragment StoreEntitySet="TooraineSet">
+          <ScalarProperty Name="TooraineId" ColumnName="TooraineId" />
+          <ScalarProperty Name="nimi" ColumnName="nimi" />
+          <ScalarProperty Name="kogus" ColumnName="kogus" />
+          <ScalarProperty Name="hind" ColumnName="hind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ametTootaja" TypeName="DBModel.ametTootaja" StoreEntitySet="TootajaSet">
+      <EndProperty Name="amet">
+        <ScalarProperty Name="ametId" ColumnName="amet_ametId" />
+      </EndProperty>
+      <EndProperty Name="Tootaja">
+        <ScalarProperty Name="TootajaId" ColumnName="TootajaId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TootajaToograafik" TypeName="DBModel.TootajaToograafik" StoreEntitySet="ToograafikSet">
+      <EndProperty Name="Tootaja">
+        <ScalarProperty Name="TootajaId" ColumnName="Tootaja_TootajaId" />
+      </EndProperty>
+      <EndProperty Name="Toograafik">
+        <ScalarProperty Name="ToograafikId" ColumnName="ToograafikId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TootajaTellimus" TypeName="DBModel.TootajaTellimus" StoreEntitySet="TellimusSet">
+      <EndProperty Name="Tootaja">
+        <ScalarProperty Name="TootajaId" ColumnName="Tootaja_TootajaId" />
+      </EndProperty>
+      <EndProperty Name="Tellimus">
+        <ScalarProperty Name="TellimusId" ColumnName="TellimusId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="klientTellimus" TypeName="DBModel.klientTellimus" StoreEntitySet="TellimusSet">
+      <EndProperty Name="klient">
+        <ScalarProperty Name="klientId" ColumnName="klient_klientId" />
+      </EndProperty>
+      <EndProperty Name="Tellimus">
+        <ScalarProperty Name="TellimusId" ColumnName="TellimusId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="klientbroneerimine" TypeName="DBModel.klientbroneerimine" StoreEntitySet="broneerimineSet">
+      <EndProperty Name="klient">
+        <ScalarProperty Name="klientId" ColumnName="klient_klientId" />
+      </EndProperty>
+      <EndProperty Name="broneerimine">
+        <ScalarProperty Name="bronnerimineId" ColumnName="bronnerimineId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="laudbroneerimine" TypeName="DBModel.laudbroneerimine" StoreEntitySet="broneerimineSet">
+      <EndProperty Name="laud">
+        <ScalarProperty Name="laudId" ColumnName="laud_laudId" />
+      </EndProperty>
+      <EndProperty Name="broneerimine">
+        <ScalarProperty Name="bronnerimineId" ColumnName="bronnerimineId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TellimusTellimusToode" TypeName="DBModel.TellimusTellimusToode" StoreEntitySet="TellimusToodeSet">
+      <EndProperty Name="Tellimus">
+        <ScalarProperty Name="TellimusId" ColumnName="Tellimus_TellimusId" />
+      </EndProperty>
+      <EndProperty Name="TellimusToode">
+        <ScalarProperty Name="TellimusToodeId" ColumnName="TellimusToodeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ToodeTellimusToode" TypeName="DBModel.ToodeTellimusToode" StoreEntitySet="TellimusToodeSet">
+      <EndProperty Name="Toode">
+        <ScalarProperty Name="ToodeId" ColumnName="Toode_ToodeId" />
+      </EndProperty>
+      <EndProperty Name="TellimusToode">
+        <ScalarProperty Name="TellimusToodeId" ColumnName="TellimusToodeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="kategooriaToode" TypeName="DBModel.kategooriaToode" StoreEntitySet="ToodeSet">
+      <EndProperty Name="kategooria">
+        <ScalarProperty Name="kategooriaId" ColumnName="kategooria_kategooriaId" />
+      </EndProperty>
+      <EndProperty Name="Toode">
+        <ScalarProperty Name="ToodeId" ColumnName="ToodeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Tellimusmakse" TypeName="DBModel.Tellimusmakse" StoreEntitySet="makseSet">
+      <EndProperty Name="Tellimus">
+        <ScalarProperty Name="TellimusId" ColumnName="Tellimus_TellimusId" />
+      </EndProperty>
+      <EndProperty Name="makse">
+        <ScalarProperty Name="makseId" ColumnName="makseId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TooteKoostisosaTellimus" TypeName="DBModel.TooteKoostisosaTellimus" StoreEntitySet="TellimusSet">
+      <EndProperty Name="TooteKoostisosa">
+        <ScalarProperty Name="tooteKoostisosaId" ColumnName="TooteKoostisosa_tooteKoostisosaId" />
+      </EndProperty>
+      <EndProperty Name="Tellimus">
+        <ScalarProperty Name="TellimusId" ColumnName="TellimusId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ToodeTooteKoostisosa" TypeName="DBModel.ToodeTooteKoostisosa" StoreEntitySet="TooteKoostisosaSet">
+      <EndProperty Name="Toode">
+        <ScalarProperty Name="ToodeId" ColumnName="Toode_ToodeId" />
+      </EndProperty>
+      <EndProperty Name="TooteKoostisosa">
+        <ScalarProperty Name="tooteKoostisosaId" ColumnName="tooteKoostisosaId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KoostisosaTooteKoostisosa" TypeName="DBModel.KoostisosaTooteKoostisosa" StoreEntitySet="TooteKoostisosaSet">
+      <EndProperty Name="Koostisosa">
+        <ScalarProperty Name="koostisosaId" ColumnName="Koostisosa_koostisosaId" />
+      </EndProperty>
+      <EndProperty Name="TooteKoostisosa">
+        <ScalarProperty Name="tooteKoostisosaId" ColumnName="tooteKoostisosaId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TarnijaTooraine" TypeName="DBModel.TarnijaTooraine" StoreEntitySet="TooraineSet">
+      <EndProperty Name="Tarnija">
+        <ScalarProperty Name="TaarnijaId" ColumnName="Tarnija_TaarnijaId" />
+      </EndProperty>
+      <EndProperty Name="Tooraine">
+        <ScalarProperty Name="TooraineId" ColumnName="TooraineId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
