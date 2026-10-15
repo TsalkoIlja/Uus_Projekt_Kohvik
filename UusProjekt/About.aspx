@@ -13,7 +13,7 @@
                 <asp:BoundField DataField="amet_ametId" HeaderText="amet_ametId" SortExpression="amet_ametId" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:IljaKohvikConnectionString1 %>" DeleteCommand="DELETE FROM [TootajaSet] WHERE [TootajaId] = @TootajaId" InsertCommand="INSERT INTO [TootajaSet] ([nimi], [isikukood], [telefon], [amet_ametId]) VALUES (@nimi, @isikukood, @telefon, @amet_ametId)" ProviderName="<%$ ConnectionStrings:IljaKohvikConnectionString1.ProviderName %>" SelectCommand="SELECT [TootajaId], [nimi], [isikukood], [telefon], [amet_ametId] FROM [TootajaSet]" UpdateCommand="UPDATE [TootajaSet] SET [nimi] = @nimi, [isikukood] = @isikukood, [telefon] = @telefon, [amet_ametId] = @amet_ametId WHERE [TootajaId] = @TootajaId">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TsalkoKohvikConnectionString1 %>" DeleteCommand="DELETE FROM [TootajaSet] WHERE [TootajaId] = @TootajaId" InsertCommand="INSERT INTO [TootajaSet] ([nimi], [isikukood], [telefon], [amet_ametId]) VALUES (@nimi, @isikukood, @telefon, @amet_ametId)" SelectCommand="SELECT [TootajaId], [nimi], [isikukood], [telefon], [amet_ametId] FROM [TootajaSet]" UpdateCommand="UPDATE [TootajaSet] SET [nimi] = @nimi, [isikukood] = @isikukood, [telefon] = @telefon, [amet_ametId] = @amet_ametId WHERE [TootajaId] = @TootajaId">
             <DeleteParameters>
                 <asp:Parameter Name="TootajaId" Type="Int32" />
             </DeleteParameters>
@@ -31,6 +31,15 @@
                 <asp:Parameter Name="TootajaId" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
+    </p>
+<h2>
+        Lisa töötaja</h2>
+<p>
+        <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource1" DefaultMode="Insert" Height="50px" Width="125px">
+            <Fields>
+                <asp:CommandField ShowInsertButton="True" />
+            </Fields>
+        </asp:DetailsView>
     </p>
         <h3>Your application description page.</h3>
         <p>Use this area to provide additional information.</p>

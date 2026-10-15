@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a676b1ebd04b461c8b712daa110f091c" Name="Diagram1" ZoomLevel="53" >
+      <Diagram DiagramId="a676b1ebd04b461c8b712daa110f091c" Name="Diagram1" ZoomLevel="69" >
         <EntityTypeShape EntityType="DBModel.amet" Width="1.5" PointX="9" PointY="7" />
         <EntityTypeShape EntityType="DBModel.Tootaja" Width="1.5" PointX="12.25" PointY="4.75" />
         <AssociationConnector Association="DBModel.ametTootaja" />
