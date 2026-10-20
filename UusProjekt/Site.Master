@@ -48,7 +48,6 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Avaleht</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Töötaja</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Töögraafik</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact2">TootajaToograafik</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact3">LisaTootajaToograafik</a></li>
                     </ul>

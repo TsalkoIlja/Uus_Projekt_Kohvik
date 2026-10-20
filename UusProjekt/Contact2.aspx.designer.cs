@@ -11,7 +11,7 @@ namespace UusProjekt
 {
 
 
-    public partial class Contact
+    public partial class Contact2
     {
 
         /// <summary>
